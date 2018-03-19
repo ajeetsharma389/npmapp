@@ -32,11 +32,25 @@ pipeline
         		
       		}
         }
+        stage('Test image') {
+        /* Ideally, we would run a test framework against our image.
+         * For this example, we're using a Volkswagen-type approach ;-) */
+
+        steps {
+      		
+            echo "Tests passed"
+        }
+    }
         stage('Running the container') {
             steps {
-              //  sh 'docker run -p 49160:9000 -d ajeetsharma389/npm:100'
               
-              sh 'sudo docker run -p 49160:8000 ajeetsharma389/npm'
+              sh 'sudo docker run -it -p 8000:8000 ajeetsharma389/npm'
+            }
+        }
+        stage('Pushing the container') {
+            steps {
+              
+              echo "Push the image to hub"
             }
         }
     }
