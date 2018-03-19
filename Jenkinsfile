@@ -24,7 +24,7 @@ pipeline
         			}
         	}*/
         	steps {
-        		sh 'docker build ajeetsharma389/npm'
+        		sh 'sudo docker build ajeetsharma389/npm'
       		}
         }
         /*stage('Running') {

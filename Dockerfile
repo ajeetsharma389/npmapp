@@ -32,7 +32,7 @@ COPY . .
 
 #Your app binds to port 8080 so you'll use the EXPOSE instruction to have it mapped by the docker daemon:
 # tell docker what port to expose
-EXPOSE 8080
+EXPOSE 9000
 
 
 #define the command to run your app using CMD which defines your runtime. 
