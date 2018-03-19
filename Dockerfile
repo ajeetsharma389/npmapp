@@ -2,7 +2,7 @@
 FROM node:carbon
 
 ####
-FROM jenkins USER root  RUN curl -sSL https://get.docker.com/ | sh && \ usermod -aG docker jenkins && \ apt-get install sudo COPY run.sh ./run.sh ENTRYPOINT ["/bin/bash","-c","./run.sh"]
+#FROM jenkins USER root  RUN curl -sSL https://get.docker.com/ | sh && \ usermod -aG docker jenkins && \ apt-get install sudo COPY run.sh ./run.sh ENTRYPOINT ["/bin/bash","-c","./run.sh"]
 
 # set maintainer
 LABEL maintainer "Ajeet"
