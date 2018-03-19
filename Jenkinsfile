@@ -1,8 +1,12 @@
 pipeline
 {
 	
-	
-	agent { dockerfile true }
+	agent {
+		node{
+			label : 'CD'
+		}
+	}
+	/*agent { dockerfile true }*/
 	
 	stages {
 		stage('Clone repository') {
@@ -24,7 +28,8 @@ pipeline
         			}
         	}*/
         	steps {
-        		sh 'sudo docker build ajeetsharma389/npm'
+        		sh 'sudo docker build -t ajeetsharma389/npm'
+        		#sh sudo docker run -it -p 8000:8000 ajeetsharma389/npm:1'
       		}
         }
         /*stage('Running') {
