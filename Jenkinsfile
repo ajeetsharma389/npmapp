@@ -1,43 +1,17 @@
-pipeline
+node
 {
-	agent { 
-		node{
-			label 'CD'
-			//customWorkspace '/Users/ajeet/jobs/'
-		}
-	 }
-	
-	//agent { dockerfile true }
-	
-	stages {
+	def app
+
 		stage('Clone repository') {
-        	
-			steps {
-        		echo "clone code"
-        		checkout scm
-      		}
-        	
+       	 /* Let's make sure we have the repository cloned to our workspace */
+			echo "Pulling code from repo"
+        	checkout scm
     	}
         stage('Build Image') {
         	
+        	app = docker.build ‘ajeetsharma389/npmapp’
         	
-        	/*agent{
-        		docker
-        			{
-        				
-        				reuseNode true
-        			}
-        	}*/
-        	steps {
-        		
-        		def app=docker.build(‘ajeetsharma389/npmapp’)
-        		//sh 'docker images'
-      		}
         }
-        /*stage('Running') {
-            steps {
-              //  sh 'docker run -p 49160:9000 -d ajeetsharma389/npmapp:100'
-            }
-        }*/
-    }
+
+    
 }
