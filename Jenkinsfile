@@ -9,7 +9,7 @@ node
     	}
         stage('Build Image') {
         	
-        	app = docker.build ‘ajeetsharma389/npmapp’
+        	app = docker.build("ajeetsharma389/npmapp")
         	
         }
 
