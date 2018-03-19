@@ -32,13 +32,13 @@ COPY . .
 
 #Your app binds to port 8080 so you'll use the EXPOSE instruction to have it mapped by the docker daemon:
 # tell docker what port to expose
-echo "exposing 9000"
+RUN echo "exposing 9000"
 EXPOSE 9000
 
 
 #define the command to run your app using CMD which defines your runtime. 
 #Here we will use the basic npm start which will run node server.js to start your server:
-echo "starting npm"
+RUN echo "starting npm"
 CMD [ "npm", "start" ]
 
 # set a health check
