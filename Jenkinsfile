@@ -30,13 +30,13 @@ pipeline
         	}*/
         	steps {
         		
-        		sh 'docker build -t ajeetsharma389/NodeJSApp:100'
+        		sh 'docker build -t ajeetsharma389/npmapp:100'
         		//sh 'docker images'
       		}
         }
         /*stage('Running') {
             steps {
-              //  sh 'docker run -p 49160:9000 -d ajeetsharma389/NodeJSApp:100'
+              //  sh 'docker run -p 49160:9000 -d ajeetsharma389/npmapp:100'
             }
         }*/
     }
