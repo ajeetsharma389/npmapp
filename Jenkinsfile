@@ -6,7 +6,7 @@ pipeline
 			label 'CD'
 		}
 	}
-	/*agent { dockerfile true }*/
+
 	
 	stages {
 		stage('Clone repository') {
@@ -29,13 +29,15 @@ pipeline
         	}*/
         	steps {
         		sh 'sudo docker build -t ajeetsharma389/npm .'
-        		//sh sudo docker run -it -p 8000:8000 ajeetsharma389/npm:1'
+        		
       		}
         }
-        /*stage('Running') {
+        stage('Running the container') {
             steps {
               //  sh 'docker run -p 49160:9000 -d ajeetsharma389/npm:100'
+              
+              sh 'sudo docker run -it -p 49160:8000 ajeetsharma389/npm'
             }
-        }*/
+        }
     }
 }
