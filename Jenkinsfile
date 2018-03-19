@@ -30,7 +30,7 @@ pipeline
         	}*/
         	steps {
         		
-        		sh 'docker build -t ajeetsharma389/npmapp:100'
+        		def app=docker.build(‘ajeetsharma389/npmapp’)
         		//sh 'docker images'
       		}
         }
