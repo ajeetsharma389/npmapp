@@ -3,7 +3,7 @@ pipeline
 	
 	agent {
 		node{
-			label : 'CD'
+			label 'CD'
 		}
 	}
 	/*agent { dockerfile true }*/
