@@ -42,12 +42,7 @@ pipeline
             echo "Tests passed"
         }
     }
-        stage('Running the container') {
-            steps {
-              
-              sh 'sudo docker run -p 8000:8000 ajeetsharma389/npm'
-            }
-        }
+        
         stage('Pushing the container') {
             steps {
               
