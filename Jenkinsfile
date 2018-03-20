@@ -44,13 +44,15 @@ pipeline
         stage('Running the container') {
             steps {
               
-              sh 'sudo docker run -d -p 8000:8000 ajeetsharma389/npm'
+              sh 'sudo docker run -p 8000:8000 ajeetsharma389/npm'
             }
         }
         stage('Pushing the container') {
             steps {
               
               echo "Push the image to hub"
+              sh 'sudo docker push'
+		
             }
         }
     }
