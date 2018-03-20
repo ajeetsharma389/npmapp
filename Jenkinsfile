@@ -28,7 +28,8 @@ pipeline
         			}
         	}*/
         	steps {
-        		sh 'sudo docker build -t ajeetsharma389/npm .'
+        		sh 'sudo docker build -t ajeetdocker/npm .'
+        		
         		
       		}
         }
@@ -51,7 +52,7 @@ pipeline
             steps {
               
               echo "Push the image to hub"
-              sh 'sudo docker push'
+              sh 'sudo docker push ajeetdocker/npm'
 		
             }
         }
