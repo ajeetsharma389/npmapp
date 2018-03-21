@@ -49,13 +49,10 @@ pipeline
               echo "Push the image to hub"
               			
               		node('CD') {
-  							withCredentials([usernameColonPassword(credentialsId: 'dockerHub', variable: 'USERPASS')]) {
-    					
-      						//curl -u $USERPASS https://private.server/ > output
-      						echo 'password ='.$USERPASS
-      						sh 'sudo docker login -u="ajeetdocker" -p="$USERPASS"'
-    				
-  							}
+  							docker.withRegistry('https://hub.docker.com/', 'dockerHub') {
+            				app.push("${env.BUILD_NUMBER}")
+           					app.push("latest")
+        					}	
 						}	
     			
               			
