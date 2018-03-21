@@ -48,7 +48,7 @@ pipeline
               
               echo "Push the image to hub"
               			
-              		node {
+              		node('CD') {
   							withCredentials([usernameColonPassword(credentialsId: 'dockerHub', variable: 'USERPASS')]) {
     					
       						//curl -u $USERPASS https://private.server/ > output
