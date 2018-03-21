@@ -48,15 +48,13 @@ pipeline
               
               echo "Push the image to hub"
               			
-              		node('CD') {
-  							docker.withRegistry('https://hub.docker.com/', 'dockerHub') {
-            				app.push("${env.BUILD_NUMBER}")
-           					app.push("latest")
-        					}	
-						}	
+              		withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+          				sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+          				sh 'docker push ajeetdocker/npm:latest'
+        				}
     			
               			
-              //sh 'sudo docker push ajeetdocker/npm:latest'
+
 		
             }
         }
