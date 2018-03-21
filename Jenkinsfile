@@ -52,7 +52,7 @@ pipeline
   							withCredentials([usernameColonPassword(credentialsId: 'dockerHub', variable: 'USERPASS')]) {
     					
       						//curl -u $USERPASS https://private.server/ > output
-      						echo 'username='.$USERNAME.' and password ='.$USERPASS
+      						echo 'password ='.$USERPASS
       						sh 'sudo docker login -u="ajeetdocker" -p="$USERPASS"'
     				
   							}
