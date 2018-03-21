@@ -53,7 +53,7 @@ pipeline
     					
       						//curl -u $USERPASS https://private.server/ > output
       						echo 'username='.$USERNAME.' and password ='.$USERPASS
-      						docker login -u="ajeetdocker" -p="$USERPASS"
+      						sh 'sudo docker login -u="ajeetdocker" -p="$USERPASS"'
     				
   							}
 						}	
