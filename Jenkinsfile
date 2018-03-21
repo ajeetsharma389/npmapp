@@ -53,7 +53,7 @@ pipeline
 						withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
           				sh "sudo docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
           				//sh 'sudo docker push ${env.BUILD_NUMBER}'
-          				sh 'sudo docker push ajeetdocker/npm:latest'
+          				sh 'sudo docker push ajeetdocker/npm'
         				}
     			
               			
