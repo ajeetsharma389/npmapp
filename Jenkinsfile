@@ -28,7 +28,7 @@ pipeline
         			}
         	}*/
         	steps {
-        		sh 'sudo docker build -t ajeetdocker/npm .'
+        		sh 'sudo docker build -t ajeetdocker/npm:latest .'
         		
         		
       		}
@@ -47,7 +47,19 @@ pipeline
             steps {
               
               echo "Push the image to hub"
-              sh 'sudo docker push ajeetdocker/npm'
+              			
+              		node {
+  							withCredentials([usernameColonPassword(credentialsId: 'dockerHub', variable: 'USERPASS')]) {
+    					
+      						//curl -u $USERPASS https://private.server/ > output
+      						echo 'username='.$USERNAME.' and password ='.$USERPASS
+      						docker login -u="ajeetdocker" -p="$USERPASS"
+    				
+  							}
+						}	
+    			
+              			
+              //sh 'sudo docker push ajeetdocker/npm:latest'
 		
             }
         }
